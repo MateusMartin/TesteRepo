@@ -6,16 +6,16 @@ $(function () {
 		e.preventDefault()
 
         var serializedData = $(this).serialize();
-
+        //Função ajax para mandar valor do campo de cliente
         $.ajax({
             type: 'post',
-            url:  'Clientes_cur.php',
+            url:  '/ProjectTeste/teste/class/Clientes_cur.php',
             data: serializedData,
             success: function(data,retorno){
 
                 console.log(retorno);
 
-
+                //Função usada na aplicação para gerar a tabela por java script
                 var transform = {"tag":"table", "children":[
                     {"tag":"tbody","children":[
                         {"tag":"tr","children":[
@@ -29,9 +29,9 @@ $(function () {
                     ]}
                 ]};
 
-
                 var Dados = data;
 
+                //Ultilizada o json2 para montar a tabela
                 $('#bodyid').html(json2html.transform(Dados,transform))
 
 

@@ -8,6 +8,8 @@
 
 class Clientes_db{
 
+
+    //metodo Construtor faz conexão com o banco de dados
     function __construct() {
         $host = "localhost";
         $user = "root";
@@ -27,24 +29,24 @@ class Clientes_db{
 
 
 
+    //Funcão realiza a busca de clientes de acordo com o paremetro passado
+    public function buscaCliente($where = null){
 
-    public function Buscacliente($where = null){
 
-        $query = "Select a.CodCliente,a.Nome,a.Idade,a.Telefone,a.Endereco,b.Nome as Categoria from tbl_clientes a inner join tbl_Categorias b on a.CodCategoria = b.CodCategoria ";
+        //seleciona da tabela os registros
+        $query = "Select a.CodCliente,a.Nome,a.Idade,a.Telefone,a.Endereco,b.Nome as Categoria from tbl_clientes a inner join tbl_Categorias b on a.CodCategoria = b.CodCategoria where 1=1 ";
 
+        //caso exista paremetro filtra por cliente
+        //se não busca todos
         if($where != null){
 
-            $query .= " Where a.Nome like '%{$where}%'";
+            //monta parametro like para buscar os dados da tabela
+            $query .= " and a.Nome like '%{$where}%'";
 
         }
-
         $sql = mysqli_query($this->msqlink,$query);
 
-
-
-
-
-
+        //Armazna o resultado de cada linha do resultado em uma variavel
         while ($row = mysqli_fetch_assoc($sql)){
 
                 $encode[] = ($row);
@@ -54,6 +56,7 @@ class Clientes_db{
         }
 
 
+        //transforma os dados em dados json
         $dadosJ =  json_encode($encode);
 
 
