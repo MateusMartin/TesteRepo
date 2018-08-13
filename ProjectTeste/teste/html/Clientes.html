@@ -2,30 +2,40 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/1.2.0/json2html.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.json2html/1.2.0/jquery.json2html.min.js"></script>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="../js/script.js"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>
 
 
 <!DOCTYPE html>
 <html lang="en">
+<div class="panel-group">
 <head>
     <meta charset="UTF-8">
-    <title>Consulta CLientes</title>
 </head>
-<body>
+</div>
+<div>
+
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">Colsulta Clientes</div>
 
        <!--- Campo fild com formulario para colocoar o nome do cliente -->
         <form method="post" id="form">
             <fieldset>
-                <legend>Consulta</legend>
 
              <label>Nome Cliente</label>   <input type="text" name="Cliente" id="ID_Nome_Cliente">
 
-                <input type="submit" id="ID_Button_Pequisa" name="Buscar"/>
+                <button type="submit" id="ID_Button_Pequisa" class="btn btn-primary btn-xs"> Buscar </button>
             </fieldset>
 
         </form>
-
+        </div>
+    </div>
+</div>
 
 
        <br />
@@ -33,12 +43,12 @@
        <br />
        <br />
 
+       <div class="panel-group">
+       <div class="panel panel-default">
+           <div class="panel-heading">Tabela Clientes</div>
 
-       <fieldset>
-           <legend>Tabela Clientes</legend>
-
-           <div class="Table">
-               <table>
+           <div class="table-responsive">
+               <table class="table">
                   <thead>
                     <tr>
                         <th>Cod</th>
@@ -49,16 +59,14 @@
                         <th>Categoria</th>
                     </tr>
                   </thead>
-                   <tbody id="bodyid">
+                   <tbody id="bodyid" class="table table-responsive">
 
 
                    </tbody>
                </table>
            </div>
-
-
-       </fieldset>
-
+        </div>
+       </div>
 
 
 

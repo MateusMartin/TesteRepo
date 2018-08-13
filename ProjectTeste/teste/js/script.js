@@ -13,7 +13,7 @@ $(function () {
             data: serializedData,
             success: function(data,retorno){
 
-                console.log(retorno);
+                console.log(data);
 
                 //Função usada na aplicação para gerar a tabela por java script
                 var transform = {"tag":"table", "children":[
