@@ -9,7 +9,7 @@ $(function () {
         //Função ajax para mandar valor do campo de cliente
         $.ajax({
             type: 'post',
-            url:  'TesteRepo/ProjectTeste/teste/class/Clientes_cur.php',
+            url:  '/TesteRepo/ProjectTeste/teste/class/Clientes_cur.php',
             data: serializedData,
             success: function(data,retorno){
 
